@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PathOfExile</title>
+    <style>
+        #button
+        {
+            display: block;
+            width: 100%;
+            border: none;
+            <!--background-color: #8f4be3;-->
+            font-size: 40px;
+            cursor: pointer;
+            <!--text-align: center;-->
+        }
+
+.rounded-button:hover {
+  background: #00866c;
+}
+    </style>
+</head>
+<body>
+    <div id='chart' class='chart'></div>
+    <!--{% for item in data %}
+        <tr>
+          <td><br>{{ item }}<br></td>
+        //</tr>
+    {% endfor %}-->
+    <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+    <script type='text/javascript'>
+        var graph1 = {{graphJSON | safe}};
+        Plotly.plot('chart', graph1, {});
+    </script>
+    <div id="button">
+        <button id="myButton"><<</button>
+    </div>
+    <script type="text/javascript">
+        document.getElementById("myButton").onclick = function () {
+            location.href = "/";
+        };
+    </script>
+</body>
+</html>
